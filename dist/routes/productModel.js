@@ -1,9 +1,4 @@
 const mongoose = require('mongoose');
-
-const uri = 'http://localhost:27017';
-
-mongoose.connect(uri);
-
 var productModel = mongoose.Schema({
     name: {
         type: String,
@@ -26,8 +21,8 @@ var productModel = mongoose.Schema({
         default: Date.now
     }
 });
-
-export var products = mongoose.model('products', productModel);
-module.exports.get = function(callback, limit) {
+var products = module.exports = mongoose.model('products', productModel);
+module.exports.get = function (callback, limit) {
     products.find(callback).limit(limit);
-}
+};
+//# sourceMappingURL=productModel.js.map
