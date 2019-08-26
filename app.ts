@@ -4,6 +4,8 @@ import * as bodyParser from 'body-parser';
 
 import * as mongoose from 'mongoose';
 
+import * as AutoIncrement from 'mongoose-sequence';
+
 import { Application } from 'express-serve-static-core';
 
 const apiRoutes = require('./dist/routesApi')
@@ -20,7 +22,7 @@ var db = mongoose.Connection;
 
 app.use('/api', apiRoutes);
 
-app.get('/get', (req, res) => {
+app.get('/', (req, res) => {
   res.send('Hello world');
 });
 

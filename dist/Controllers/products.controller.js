@@ -1,6 +1,6 @@
-const prod = require('../routes/productModel');
+const prod = require('../routesModel/productModel');
 exports.index = function (req, res) {
-    prod.get(function (err, contact) {
+    prod.get(function (err, prods) {
         if (err) {
             res.json({
                 status: 'error',
@@ -10,24 +10,25 @@ exports.index = function (req, res) {
         res.json({
             status: 'success',
             message: 'Successfully retrieved products',
-            data: contact
+            data: prods
         });
     });
 };
-exports.newProduct = function (req, res) {
-    var product = new product();
-    product.name = req.body.name ? req.body.name : prod.name;
-    product.email = req.body.email;
-    product.phone = req.body.phone;
-    product.products = req.body.products;
-    product.save((err) => {
+exports.newProduct = function (req, res, next) {
+    var prods = new prod();
+    prods.name = req.body.name ? req.body.name : prods.name;
+    prods.email = req.body.email;
+    prods.phone = req.body.phone;
+    prods.products = req.body.products;
+    prods.save(function (err) {
         if (err) {
             res.json(err);
+            next();
         }
         res.json({
             status: 'Success',
             message: 'Successfully saved the products',
-            data: prod
+            data: prods
         });
     });
 };
@@ -38,6 +39,41 @@ exports.view = function (req, res) {
         }
         res.json({
             status: 'Success',
+            data: prod
+        });
+    });
+};
+exports.delete = function (req, res) {
+    prod.remove({
+        id: req.params.product_id
+    }, function (err, prods) {
+        if (err) {
+            res.json({
+                status: 'Error',
+                message: 'Error'
+            });
+        }
+        res.json({
+            status: 'Success',
+            message: 'product deleted successfully'
+        });
+    });
+};
+exports.update = function (req, res) {
+    prod.findById(req.params.product_id, function (err, prods) {
+        if (err) {
+            res.json({
+                status: 'Error',
+                message: 'Error'
+            });
+        }
+        prod.name = req.params.name ? req.params.name : prod.name;
+        prod.email = req.params.email;
+        prod.phone = req.params.phone;
+        prod.products = req.params.products;
+        res.json({
+            status: 'Success',
+            message: 'Updated product information successfully',
             data: prod
         });
     });

@@ -7,6 +7,7 @@ var apiRoutes = require('./dist/routesApi');
 var app = express();
 var uri = 'mongodb://localhost:27017';
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 mongoose.connect('mongodb://localhost:27017', { useNewUrlParser: false });
 var db = mongoose.Connection;
 app.use('/api', apiRoutes);

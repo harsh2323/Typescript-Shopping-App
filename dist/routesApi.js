@@ -10,6 +10,8 @@ router.route('/products-name')
     .get(productController.index)
     .post(productController.newProduct);
 router.route('/products-name/:product_id')
-    .get(productController.view);
+    .get(productController.view)
+    .post(productController.update)
+    .delete(productController.delete);
 module.exports = router;
 //# sourceMappingURL=routesApi.js.map

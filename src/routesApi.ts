@@ -16,4 +16,6 @@ router.route('/products-name')
     .post(productController.newProduct)
 router.route('/products-name/:product_id')
     .get(productController.view)
+    .post(productController.update)
+    .delete(productController.delete)
 module.exports = router;

@@ -1,4 +1,6 @@
 const mongoose = require('mongoose');
+var ObjectIdSchema = mongoose.Schema;
+var ObjectId = mongoose.Types.ObjectId;
 var productModel = mongoose.Schema({
     name: {
         type: String,
@@ -13,7 +15,7 @@ var productModel = mongoose.Schema({
         required: false
     },
     products: {
-        product: String,
+        type: String,
         required: false
     },
     create_date: {
