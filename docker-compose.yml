@@ -1,14 +1,8 @@
----
-inventory:
-  build: .
-  command: npm start
-  ports:
-  - "8080:8080"
-  links:
-  - mongodb
-  - mongodb:mongodb.cloud66.local
-  environment:
-    - NODE_ENV=production
-    - MONGODB_ADDRESS=mongodb
-mongodb:
-  image: mongo
+version: '1'
+services: 
+  web: 
+    build: .
+    ports: 
+      - "8080:8080"
+  redis:
+    image: ""
