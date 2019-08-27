@@ -30,7 +30,7 @@ You need some dependencies to test this API
 -  Mongoose
 
 To install these dependencies locally simply clone this repo and run the script
-``` ./install-dependencies.sh```
+``` npm install```
 
 This will install everything you need
 
