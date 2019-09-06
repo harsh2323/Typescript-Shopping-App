@@ -6,11 +6,11 @@ var bodyParser = require("body-parser");
 var mongoose = require("mongoose");
 var apiRoutes = require('./dist/routesApi');
 var app = express();
-var dev_db_url = 'mongodb://localhost:27017/local';
+var dev_db_url = 'mongodb://localhost:27017';
 var mongoDB = process.env.MONGODB_URI || dev_db_url;
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-mongoose.connect(mongoDB, { useNewUrlParser: false }).then(() => {
+mongoose.connect('mongodb://localhost:27017', { useNewUrlParser: false }).then(() => {
     console.log('Connected to the database');
 }).catch((err) => {
     console.log(err);
