@@ -1,18 +1,18 @@
-version: "3"
+version: "2"
 services: 
   app:
-    container_name: app
+    container_name: typescript-shopping-app-api
     restart: always
     build: .
     ports:
-      - "3000:3000"
+      - "80:3000"
     links:
-      - mongodb
+      - mongo
     depends_on:
-      - mongodb
-  mongodb:
+      - mongo
+  mongo:
     image: mongo:latest
-    container_name: "mongodb"
+    container_name: "mongo"
     environment:
       - MONGO_DATA_DIR=/data/db
     volumes:
