@@ -24,7 +24,7 @@
     "eslint-plugin-react-hooks": "^1.7.0",
     "express": "^4.17.1",
     "mongoose": "^5.7.0",
-    "tslint-config-airbnb": "^5.11.1",
+    "tslint-config-airbnb": "^5.11.2",
     "typescript": "^3.5.3"
   },
   "dependencies": {

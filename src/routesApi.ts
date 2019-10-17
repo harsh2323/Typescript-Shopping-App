@@ -14,8 +14,8 @@ var productController = require('./Controllers/queries');
 router.route('/products-name')
     .get(productController.getUsers)
     .post(productController.postUsers)
-// router.route('/products-name/:product_id')
-//     .get(productController.view)
-//     .post(productController.update)
-//     .delete(productController.delete)
+router.route('/products-name/:id')
+    .get(productController.getUsersById)
+    .put(productController.updateUsers)
+    .delete(productController.deleteUsers)
 module.exports = router;

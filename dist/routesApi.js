@@ -9,5 +9,9 @@ var productController = require('./Controllers/queries');
 router.route('/products-name')
     .get(productController.getUsers)
     .post(productController.postUsers);
+router.route('/products-name/:id')
+    .get(productController.getUsersById)
+    .put(productController.updateUsers)
+    .delete(productController.deleteUsers);
 module.exports = router;
 //# sourceMappingURL=routesApi.js.map
