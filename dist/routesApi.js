@@ -5,13 +5,9 @@ router.get('/', (req, res) => {
         message: "Welcome to the typescript-express API"
     });
 });
-var productController = require('./Controllers/products.controller');
+var productController = require('./Controllers/queries');
 router.route('/products-name')
-    .get(productController.index)
-    .post(productController.newProduct);
-router.route('/products-name/:product_id')
-    .get(productController.view)
-    .post(productController.update)
-    .delete(productController.delete);
+    .get(productController.getUsers)
+    .post(productController.postUsers);
 module.exports = router;
 //# sourceMappingURL=routesApi.js.map

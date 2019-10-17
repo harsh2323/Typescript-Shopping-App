@@ -9,13 +9,13 @@ router.get('/', (req, res) => {
     });
 });
 
-var productController = require('./Controllers/products.controller');
+var productController = require('./Controllers/queries');
 
 router.route('/products-name')
-    .get(productController.index)
-    .post(productController.newProduct)
-router.route('/products-name/:product_id')
-    .get(productController.view)
-    .post(productController.update)
-    .delete(productController.delete)
+    .get(productController.getUsers)
+    .post(productController.postUsers)
+// router.route('/products-name/:product_id')
+//     .get(productController.view)
+//     .post(productController.update)
+//     .delete(productController.delete)
 module.exports = router;
