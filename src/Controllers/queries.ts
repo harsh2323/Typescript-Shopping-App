@@ -1,6 +1,3 @@
-import { response } from "express";
-import { parse } from "path";
-
 const Pool = require('pg').Pool;
 require('dotenv').config();
 const pool = new Pool({

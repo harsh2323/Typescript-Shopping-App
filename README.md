@@ -2,7 +2,7 @@
 
   
 
-This is a simple API to get the data for products.
+This is a simple API to get the data for users.
 
 Allowed methods
 
@@ -10,13 +10,9 @@ Allowed methods
 
 - POST
 
+- PUT
+
 - DELETE
-
-  
-
-This will be implemented in a future shopping application( soon )
-
-  
 
 # Usage
 
@@ -24,10 +20,9 @@ This will be implemented in a future shopping application( soon )
 
 You need some dependencies to test this API
 
-- Express
+-  Express
 -  Typescript
--  MongoDB
--  Mongoose
+-  pg-node
 
 To install these dependencies locally simply clone this repo and run the script
 
