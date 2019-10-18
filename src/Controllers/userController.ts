@@ -7,6 +7,7 @@ const pool = new Pool({
   password: process.env.PGPASSWORD,
   port: process.env.PGPORT,
 });
+
 /**
  * Displays the list of users in the database
  * @param req 

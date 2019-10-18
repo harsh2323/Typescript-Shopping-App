@@ -5,7 +5,7 @@ router.get('/', (req, res) => {
         message: "Welcome to the typescript-express API"
     });
 });
-var productController = require('./Controllers/queries');
+var productController = require('./Controllers/userController');
 router.route('/products-name')
     .get(productController.getUsers)
     .post(productController.postUsers);

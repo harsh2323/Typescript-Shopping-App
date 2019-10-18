@@ -2,7 +2,7 @@ const express = require('express');
 const app = new express();
 const bodyParser = require('body-parser');
 
-const db = require('./dist/Controllers/queries.js');
+const db = require('./dist/Controllers/userController.js');
 
 const apiRoutes = require('./dist/routesApi');
 

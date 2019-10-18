@@ -9,7 +9,7 @@ router.get('/', (req, res) => {
     });
 });
 
-var productController = require('./Controllers/queries');
+var productController = require('./Controllers/userController');
 
 router.route('/products-name')
     .get(productController.getUsers)

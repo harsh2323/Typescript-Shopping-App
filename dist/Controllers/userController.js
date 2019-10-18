@@ -59,4 +59,4 @@ module.exports = {
     updateUsers,
     deleteUsers
 };
-//# sourceMappingURL=queries.js.map
+//# sourceMappingURL=userController.js.map
