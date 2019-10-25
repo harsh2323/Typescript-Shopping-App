@@ -1,12 +1,13 @@
 const Pool = require('pg').Pool;
 require('dotenv').config();
-const pool = new Pool({
-  user: process.env.PGUSER,
-  host: process.env.PGHOST,
-  database: process.env.PGDATABASE,
-  password: process.env.PGPASSWORD,
-  port: process.env.PGPORT,
-});
+
+import { Users } from '../interfaces/interfaces';
+
+import { Pool } from '../../config.js'
+
+const pool = new Pool();
+
+const apiUsers: Users[] = [];
 
 /**
  * Displays the list of users in the database
@@ -19,6 +20,10 @@ const getUsers = (req, response) => {
     if (err) {
       throw err;
     }
+    results.rows.forEach((e) => {
+      apiUsers.push(e);
+      console.log(e);
+    })
 
     response.status(200).json(results.rows)
   })
@@ -76,7 +81,6 @@ const updateUsers = (req, response) => {
     response.status(200).send('Updated the user successfully!');
   })
 }
-
 /**
  * Deletes a user from the database
  * @param req 
@@ -97,6 +101,7 @@ const deleteUsers = (req, response) => {
 }
 // Export all the functions
 module.exports = {
+  apiUsers,
   getUsers, 
   getUsersById,
   postUsers,

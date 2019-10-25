@@ -1,17 +1,16 @@
 const Pool = require('pg').Pool;
 require('dotenv').config();
-const pool = new Pool({
-    user: process.env.PGUSER,
-    host: process.env.PGHOST,
-    database: process.env.PGDATABASE,
-    password: process.env.PGPASSWORD,
-    port: process.env.PGPORT,
-});
+const pool = new Pool();
+const apiUsers = [];
 const getUsers = (req, response) => {
     pool.query('SELECT * FROM users', (err, results) => {
         if (err) {
             throw err;
         }
+        results.rows.forEach((e) => {
+            apiUsers.push(e);
+            console.log(e);
+        });
         response.status(200).json(results.rows);
     });
 };
@@ -53,6 +52,7 @@ const deleteUsers = (req, response) => {
     });
 };
 module.exports = {
+    apiUsers,
     getUsers,
     getUsersById,
     postUsers,
