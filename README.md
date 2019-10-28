@@ -3,6 +3,7 @@
   
 
 This is a simple API to get the data for users.
+This uses node js and typescript for its backend, and will use Angular for the front end
 
 Allowed methods
 
